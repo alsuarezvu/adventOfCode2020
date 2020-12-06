@@ -4,9 +4,12 @@ object advent3 {
 
   def main(args: Array[String]): Unit = {
     val filename = "src/main/resources/advent3.txt"
-    val lines = Source.fromFile(filename).getLines().toList;
+    val file = Source.fromFile(filename)
+    val lines =file .getLines().toList;
 
     println("There are " + challenge1(lines) + " trees.")
+
+    file.close()
   }
 
   def challenge1(lines: List[String]): Integer = {

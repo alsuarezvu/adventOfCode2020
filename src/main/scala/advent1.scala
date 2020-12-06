@@ -3,7 +3,8 @@ import scala.io.Source
 object advent1 {
   def main(args: Array[String]): Unit = {
     val filename = "src/main/resources/advent1.txt"
-    val lines = Source.fromFile(filename).getLines().toList.map(_.toInt).sorted;
+    val file = Source.fromFile(filename)
+    val lines = file.getLines().toList.map(_.toInt).sorted;
     val total = 2020
 
 
@@ -28,7 +29,6 @@ object advent1 {
       }
 
     }
-
+    file.close()
   }
-
 }
