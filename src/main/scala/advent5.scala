@@ -2,6 +2,9 @@ import scala.::
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
 
+/**
+ * https://adventofcode.com/2020/day/5
+ */
 object advent5 {
   def main(args: Array[String]): Unit = {
     val filename = "src/main/resources/advent5.txt"

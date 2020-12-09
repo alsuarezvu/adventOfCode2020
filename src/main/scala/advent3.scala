@@ -1,5 +1,8 @@
 import scala.io.Source
 
+/**
+ * https://adventofcode.com/2020/day/3
+ */
 object advent3 {
 
   def main(args: Array[String]): Unit = {

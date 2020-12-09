@@ -1,6 +1,9 @@
 import scala.collection.mutable
 import scala.io.Source
 
+/**
+ * https://adventofcode.com/2020/day/6
+ */
 object advent6 {
   def main(args: Array[String]): Unit = {
     val filename = "src/main/resources/advent6.txt"

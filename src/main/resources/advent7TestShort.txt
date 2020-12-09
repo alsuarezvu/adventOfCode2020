@@ -1,0 +1,2 @@
+light red bags contain 1 bright white bag, 2 muted yellow bags.
+muted yellow bags contain 2 shiny gold bags, 9 faded blue bags.

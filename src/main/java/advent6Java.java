@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+/**
+ * https://adventofcode.com/2020/day/6
+ */
 public class advent6Java {
 
     public static void main (String[] args ) {

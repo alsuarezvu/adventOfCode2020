@@ -1,5 +1,8 @@
 import scala.io.Source
 
+/**
+ * https://adventofcode.com/2020/day/2
+ */
 object advent2 {
   def main(args: Array[String]): Unit = {
     val filename = "src/main/resources/advent2.txt"

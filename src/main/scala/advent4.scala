@@ -1,6 +1,9 @@
 import scala.collection.immutable.HashSet
 import scala.io.Source
 
+/**
+ * https://adventofcode.com/2020/day/4
+ */
 object advent4 {
   def main(args: Array[String]): Unit = {
     val filename = "src/main/resources/advent4.txt"
