@@ -19,7 +19,18 @@ public class advent7Java {
             int countOfBags = 0;
             //iterate registry and find bags which have shiny gold as children
             for (Map.Entry<String, Bag> entry :  bagRegistry.entrySet()) {
-                if(entry.getValue().bags.containsKey("shiny gold")) {
+                HashMap<Bag, Integer> childBags = entry.getValue().bags;
+                for(Map.Entry<Bag,Integer> child : childBags.entrySet()) {
+                    Bag childBag = child.getKey();
+                    if(childBag.name.equals("shiny gold")) {
+                       countOfBags++;
+                   }
+                   else {
+                       //traverse the children to get to an empty set
+                       
+                   }
+                }
+                if(childBags.containsKey("shiny gold")) {
                     countOfBags++;
                 }
             }
@@ -70,7 +81,7 @@ public class advent7Java {
                         childrenBag = new Bag((childBagName));
                     }
 
-                    motherBag.addBag(childrenBag.getName(), count);
+                    motherBag.addBag(childrenBag, count);
                 }
             }
         }
@@ -84,7 +95,7 @@ public class advent7Java {
         private String name;
 
         //bag name and count of bags
-        private HashMap<String, Integer> bags = new HashMap<>();
+        private HashMap<Bag, Integer> bags = new HashMap<>();
 
         Bag(final String name) {
             this.name = name;
@@ -94,7 +105,7 @@ public class advent7Java {
             return name;
         }
 
-        public void addBag(final String bag, final int count) {
+        public void addBag(final Bag bag, final int count) {
             bags.put(bag, count);
         }
 
