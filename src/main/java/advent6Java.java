@@ -11,11 +11,13 @@ public class advent6Java {
 
     public static void main (String[] args ) {
         try {
-            FileInputStream fstream = new FileInputStream("src/main/resources/advent6.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            final FileInputStream fstream = new FileInputStream("src/main/resources/advent6.txt");
+            final BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            //int sum = getSumUniqueAnswers(br);
             int sum = getSumOfAllYesAnswers(br);
             // Close the input stream
             fstream.close();
+            //System.out.println("Part 1 answer is: "+sum);
             System.out.println("Part 2 answer is: "+sum);
         } catch (Exception e) {// Catch exception if any
             System.err.println("Error: " + e.getMessage());
@@ -80,11 +82,9 @@ public class advent6Java {
     }
 
     private static int getSumOfAllYesForGroup(int sum, Map<Character, Integer> answerHashMap, int numberOfGroupMembers) {
-        Iterator it = answerHashMap.entrySet().iterator();
-        while (it.hasNext()) {
+        for (Map.Entry<Character, Integer> next : answerHashMap.entrySet()) {
             //check whether value == number of people in group
-            Map.Entry<Character, Integer> next = (Map.Entry<Character, Integer>) it.next();
-            if(numberOfGroupMembers == next.getValue()) {
+            if (numberOfGroupMembers == next.getValue()) {
                 sum = sum + 1;
             }
         }
