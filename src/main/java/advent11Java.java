@@ -10,8 +10,8 @@ import java.util.List;
 public class advent11Java {
     public static void main(String[] args) {
         try {
-            FileInputStream fstream = new FileInputStream("src/main/resources/advent11Test.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            final FileInputStream fstream = new FileInputStream("src/main/resources/advent11Test.txt");
+            final BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
             List<String> lines = new ArrayList<>();
             String strLine;
             while ((strLine = br.readLine()) != null) {
