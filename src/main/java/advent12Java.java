@@ -10,22 +10,16 @@ import java.util.List;
  */
 public class advent12Java {
 
-    private static int EAST = 1;
-    private static int WEST = -1;
-    private static int NORTH = 1;
-    private static int SOUTH = -1;
-
     public static void main(String[] args) {
         try {
-            FileInputStream fstream = new FileInputStream("src/main/resources/advent12Test.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            final FileInputStream fstream = new FileInputStream("src/main/resources/advent12.txt");
+            final BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
             List<String> lines = new ArrayList<>();
             String strLine;
             while ((strLine = br.readLine()) != null) {
                 lines.add(strLine.trim());
             }
 
-            //change preamble to 5 for testing with advent9Test.txt
             System.out.println("Part 1 answer is: " + challenge1(lines));
             //System.out.println("Part 2 answer is: " + challenge2(lines));
             // Close the input stream
@@ -79,17 +73,19 @@ public class advent12Java {
                     eastWestTracker = eastWestTracker - movement;
                     break;
                 case 'L':
-
-
-
-
+                case 'R':
+                    direction = turn(direction, movement, action);
+                    break;
+                default:
+                    System.err.println("Error unknown action: "+action);
+                    break;
             }
 
 
 
         }
 
-        return 0;
+        return Math.abs(northSouthTracker) + Math.abs(eastWestTracker);
     }
 
     private enum Direction {
@@ -129,18 +125,30 @@ public class advent12Java {
     }
 
     private static Direction turn(final Direction currentDirection, final int angle, final char turnDirection) {
+        if(angle == 360) {
+            return currentDirection;
+        }
+
         int directionSum = 0;
         if(turnDirection == 'R') {
             directionSum = currentDirection.getValue() + angle;
-            if(directionSum > 270) {
+
+            if(directionSum >= 360) {
                 directionSum = directionSum - 360;
             }
+
         }
         else if(turnDirection == 'L') {
             directionSum = currentDirection.getValue() - angle;
-        }
 
-        return Direction.getDirection(Math.abs(directionSum));
+            if(directionSum < 0) {
+                directionSum = directionSum + 360;
+            }
+        }
+        System.out.println("directionSum: "+directionSum);
+        Direction direction = Direction.getDirection(directionSum);
+        System.out.println("Returning direction: "+direction);
+        return direction;
     }
 
 }
